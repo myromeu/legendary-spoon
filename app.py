@@ -18,4 +18,4 @@ def get_mongo():
     return Response(shell_scripts.MONGO_SCRIPT, mimetype='text/plain')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
