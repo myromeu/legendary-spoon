@@ -17,5 +17,9 @@ def get_rabbit():
 def get_mongo():
     return Response(shell_scripts.MONGO_SCRIPT, mimetype='text/plain')
 
+@app.route(api_path + '/test_mongo', methods=['GET'])
+def test_mongo():
+    return Response('true', mimetype='text/plain')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
