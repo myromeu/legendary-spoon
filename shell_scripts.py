@@ -1,5 +1,5 @@
 MONGO_SCRIPT = '''
-apt-get install dirmngr -y
+apt-get install dirmngr wget -y
 
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 
@@ -17,7 +17,7 @@ echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 '''
 
 RABBIT_SCRIPT = '''
-apt-get install dirmngr -y
+apt-get install dirmngr wget -y
 
 apt-key adv --keyserver "hkps.pool.sks-keyservers.net" --recv-keys "0x6B73A36E6026DFCA"
 
