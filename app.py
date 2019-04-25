@@ -23,7 +23,7 @@ def get_mongo():
 def test_mongo():
     host, port = request.args.get('host', default='localhost'), request.args.get('port', default='27017')
     uri = "mongodb://%s:%s/admin" % (host, port)
-    client = MongoClient(uri)
+    client = MongoClient(uri, maxPoolSize=1, connectTimeoutMS=3000, serverSelectionTimeoutMS=3000)
     resp = Response('false', mimetype='text/plain')
     try:
         if client.admin.command('ismaster')['ok'] == 1:
