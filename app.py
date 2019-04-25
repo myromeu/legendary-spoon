@@ -30,7 +30,7 @@ def test_mongo():
                 if client.admin.command('ismaster')['ok'] == 1:
                     resp = Response('true', mimetype='text/plain')
             except ConnectionFailure:
-                resp = Response('false', mimetype='text/plain')
+                pass # we don't need change 'false' response
     except (ValueError, ConfigurationError):
         pass
 
