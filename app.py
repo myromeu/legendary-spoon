@@ -17,6 +17,9 @@ def get_rabbit():
 
 @app.route(api_path + '/get_mongo', methods=['GET'])
 def get_mongo():
+    if str.lower(request.args.get('replication', default='')) == 'true':
+        return Response(shell_scripts.MONGO_REPLICA_SET_SCRIPT, mimetype='text/plain')
+
     return Response(shell_scripts.MONGO_SCRIPT, mimetype='text/plain')
 
 @app.route(api_path + '/test_mongo', methods=['GET'])
